@@ -1,0 +1,20 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 22 
+    commands:
+      - echo "依存パッケージをインストールします..."
+      - npm install
+      
+  build:
+    commands:
+      - echo "ビルドを開始します..."
+      - npm run build
+
+artifacts:
+  base-directory: 'dist'
+  files:
+    - '**/*'
+
