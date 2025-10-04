@@ -3,18 +3,20 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 22 
+      nodejs: 22
     commands:
       - echo "依存パッケージをインストールします..."
       - npm install
-      
+
   build:
     commands:
+      - echo "スクリプトに実行権限を付与します..."
+      - chmod +x scripts/*.sh  
       - echo "ビルドを開始します..."
       - npm run build
 
 artifacts:
-  base-directory: 'dist'
   files:
-    - '**/*'
-
+    - 'dist/**/*'
+    - 'appspec.yml'
+    - 'scripts/**/*'
